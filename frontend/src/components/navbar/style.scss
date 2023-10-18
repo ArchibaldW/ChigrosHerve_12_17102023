@@ -1,5 +1,28 @@
-.navbar{
+.navbar {
   background-color: black;
-  padding: 18px 28px 12px;
+  padding-left: 28px;
   display: flex;
+  box-shadow: 0px 4px 4px 0px #00000040;
+
+
+  &__img {
+    padding-top: 18px;
+    padding-bottom: 12px;
+  }
+
+  &__menu {
+    width: 100%;
+    margin-left: 149px;
+    margin-right: 87px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+  }
 }

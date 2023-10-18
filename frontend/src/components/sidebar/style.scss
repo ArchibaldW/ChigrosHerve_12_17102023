@@ -1,3 +1,18 @@
-.sidebar{
-  
+.sidebar {
+  background: black;
+  width: 117px;
+  height: 100%;
+  position: relative;
+
+  &__credits {
+    height: 34%;
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    text-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    rotate: 270deg;
+  }
 }

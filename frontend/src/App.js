@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className='app'>
       <Navbar />
-      <div>
+      <div className='main'>
         <Sidebar />
         <Home />
       </div>

@@ -13,7 +13,7 @@ export default function Navbar() {
           className="navbar__img"
         />
       </NavLink>
-      <div>
+      <div className="navbar__menu">
         <NavLink
           className="navbar__link"
           to="/"
