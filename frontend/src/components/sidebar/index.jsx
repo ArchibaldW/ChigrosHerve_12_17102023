@@ -1,5 +1,5 @@
 import './style.scss'
-import SidebarIcons from '../../containers/sidebarIcons';
+import SidebarIcons from '../../components/sidebarIcons';
 
 export default function Sidebar() {
   return (

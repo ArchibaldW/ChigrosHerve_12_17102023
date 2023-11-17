@@ -1,6 +1,6 @@
 import Navbar from './components/navbar'
 import Sidebar from './components/sidebar'
-import Home from './pages/home'
+import Router from './pages/router'
 
 
 import './main.scss'
@@ -11,7 +11,7 @@ export default function App() {
       <Navbar />
       <div className='main'>
         <Sidebar />
-        <Home />
+        <Router />
       </div>
     </div>
   )

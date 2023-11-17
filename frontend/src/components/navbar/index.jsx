@@ -22,19 +22,19 @@ export default function Navbar() {
         </NavLink>
         <NavLink
           className="navbar__link"
-          to="/"
+          to="/profile"
         >
           Profil
         </NavLink>
         <NavLink
           className="navbar__link"
-          to="/"
+          to="/settings"
         >
           Réglage
         </NavLink>
         <NavLink
           className="navbar__link"
-          to="/"
+          to="/community"
         >
           Communauté
         </NavLink>

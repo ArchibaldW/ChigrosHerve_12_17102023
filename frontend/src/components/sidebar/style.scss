@@ -1,8 +1,17 @@
+@import '/src/assets/scss/variables.scss';
+
 .sidebar {
   background: black;
-  width: 117px;
-  height: 100%;
   position: relative;
+
+  width: 117px;
+
+  @media (max-width: $breakpointTabletXl) {
+    width: 105px;
+  }
+  @media (max-width: $breakpointTablet) {
+    width: 90px;
+  }
 
   &__credits {
     height: 34%;

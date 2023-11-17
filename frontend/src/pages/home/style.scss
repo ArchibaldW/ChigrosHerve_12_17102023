@@ -1,3 +1,72 @@
-.home{
-  
+@import '/src/assets/scss/variables.scss';
+
+.home {
+  margin: 68px 90px 30px 107px;
+
+  @media (max-width: $breakpointTabletXl) {
+    margin: 55px 80px;
+  }
+  @media (max-width: $breakpointTablet) {
+    margin: 30px 50px;
+  }
+
+  width: 100%;
+  &__header {
+    margin-bottom: 77px;
+
+    @media (max-width: $breakpointTabletXl) {
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: $breakpointTablet) {
+      margin-bottom: 50px;
+    }
+
+    &__title {
+      font-size: 48px;
+      font-weight: 500;
+      margin-bottom: 30px;
+      margin-top: 0;
+
+      @media (max-width: $breakpointTabletXl) {
+        font-size: 40px;
+        margin-bottom: 25px;
+      }
+
+      @media (max-width: $breakpointTablet) {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      &__username {
+        color: #ff0101;
+      }
+    }
+    &__subtitle {
+      font-size: 18px;
+    }
+  }
+
+  &__main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__graphs {
+      width: 75%;
+
+      @media (max-width: $breakpointTabletXl) {
+        width: 70%;
+      }
+      &__bottom {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        > * {
+          width: 32%;
+        }
+      }
+    }
+  }
 }

@@ -1,3 +1,5 @@
+@import '/src/assets/scss/variables.scss';
+
 body {
   margin: 0;
   font-family: Roboto;
@@ -8,5 +10,10 @@ body {
 }
 
 .main {
-  height: calc(100% - 95px);
+  display: flex;
+  min-height: calc(100% - 95px);
+
+  @media (max-width: $breakpointTablet) {
+    min-height: calc(100% - 84px);
+  }
 }

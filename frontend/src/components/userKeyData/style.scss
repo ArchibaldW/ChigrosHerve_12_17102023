@@ -1,0 +1,65 @@
+@import '/src/assets/scss/variables.scss';
+
+.user-key-data {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: $breakpointTabletXl) {
+    width: 28%;
+  }
+}
+
+.key-data-card {
+  display: flex;
+  align-items: center;
+  padding: 32px;
+  height: 60px;
+  background-color: #fbfbfb;
+
+  @media (max-width: $breakpointTabletXl) {
+    padding: 28px;
+    height: 50px;
+  }
+
+  @media (max-width: $breakpointTablet) {
+    padding: 24px;
+    height: 40px;
+  }
+
+  &__icon {
+    margin-right: 24px;
+
+    @media (max-width: $breakpointTabletXl) {
+      margin-right: 20px;
+      height: 50px;
+    }
+
+    @media (max-width: $breakpointTablet) {
+      margin-right: 16px;
+      height: 40px;
+    }
+  }
+
+  &__value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #282d30;
+    margin-bottom: 8px;
+
+    @media (max-width: $breakpointTablet) {
+      font-size: 16px;
+    }
+  }
+
+  &__key {
+    font-size: 14px;
+    font-weight: 500;
+    color: #74798c;
+
+    @media (max-width: $breakpointTablet) {
+      font-size: 12px;
+    }
+  }
+}

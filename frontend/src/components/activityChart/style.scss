@@ -1,0 +1,58 @@
+.activity-chart {
+  height: 320px;
+  width:100%;
+  background-color: #FBFBFB;
+  position: relative;
+
+  &__header {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 32px;
+    margin-right: 26px;
+
+    &__title{
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    &__legend {
+      font-size: 14px;
+      font-weight: 500;
+      color: #74798c;
+      &__weight-bullet {
+        display: inline-block;
+        background-color: #282d30;
+        width: 8px;
+        height: 8px;
+        border-radius: 10px;
+        margin-right: 8px;
+      }
+      &__calories-bullet {
+        display: inline-block;
+        background-color: #e60000;
+        width: 8px;
+        height: 8px;
+        border-radius: 10px;
+        margin-right: 8px;
+        margin-left: 32px;
+      }
+    }
+  }
+}
+
+.activity-chart-custom-tooltip {
+  background-color: #e60000;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+
+  > * {
+    padding: 15px 10px;
+  }
+}

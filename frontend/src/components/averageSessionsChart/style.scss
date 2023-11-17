@@ -1,0 +1,35 @@
+@import '/src/assets/scss/variables.scss';
+
+.average-sessions-chart {
+  background-color: red;
+  position: relative;
+  aspect-ratio: 1 / 1;
+
+  &__title {
+    position: absolute;
+    margin: 0;
+    top: 29px;
+    left: 34px;
+    color: white;
+    opacity: 0.5;
+    font-size: 16px;
+    font-weight: 500;
+
+    @media (max-width: $breakpointTabletXl) {
+      top: 20px;
+      left: 22px;
+      font-size: 15px;
+    }
+
+    @media (max-width: $breakpointTablet) {
+      top: 10px;
+      left: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+.average-sessions-chart-custom-tooltip {
+  background-color: white;
+  padding: 10px;
+}
