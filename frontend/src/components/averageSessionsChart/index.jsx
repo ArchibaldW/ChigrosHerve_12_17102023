@@ -7,17 +7,14 @@ import {
   ResponsiveContainer,
   Rectangle,
 } from 'recharts'
-import { useState, useEffect } from 'react'
 
 import './style.scss'
-import { userService } from '../../_services'
 import Error from '../error'
 import Loader from '../loader'
+import useAverageSessionsData from '../../hooks/useAverageSessionsData'
 
 export default function AverageSessionsChart() {
-  const [userAverageSessions, setUserAverageSessions] = useState({})
-  const [isLoading, setIsLoading] = useState(true)
-  const [isError, setIsError] = useState(false)
+  const { userAverageSessions, isLoading, isError } = useAverageSessionsData()
 
   function axisFormater(value) {
     switch (value) {
@@ -64,24 +61,6 @@ export default function AverageSessionsChart() {
       />
     )
   }
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await userService.getUserAverageSessions(
-        process.env.REACT_APP_USER_ID
-      )
-      if (res !== process.env.REACT_APP_USER_ERROR_MESSAGE) {
-        setUserAverageSessions(res.data)
-      } else {
-        setIsError(true)
-      }
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 1000)
-    }
-
-    fetchData()
-  }, [])
 
   if (isLoading) {
     return <Loader isBottom />

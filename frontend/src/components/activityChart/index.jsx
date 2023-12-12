@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import {
   BarChart,
   Bar,
@@ -10,14 +9,12 @@ import {
 } from 'recharts'
 
 import './style.scss'
-import { userService } from '../../_services'
 import Error from '../error'
 import Loader from '../loader'
+import useActivityChartData from '../../hooks/useActivityChartData'
 
 export default function ActivityChart() {
-  const [userActivityData, setUserActivityData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [isError, setIsError] = useState(false)
+  const { userActivityData, isLoading, isError } = useActivityChartData()
 
   function CustomTooltip({ active, payload }) {
     if (active && payload && payload.length) {
@@ -31,27 +28,6 @@ export default function ActivityChart() {
 
     return null
   }
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await userService.getUserActivity(
-        process.env.REACT_APP_USER_ID
-      )
-      if (res !== process.env.REACT_APP_USER_ERROR_MESSAGE) {
-        res.data.sessions.forEach((session, index) => {
-          session.day = index + 1
-        })
-        setUserActivityData(res.data.sessions)
-      } else {
-        setIsError(true)
-      }
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 500)
-    }
-
-    fetchData()
-  }, [])
 
   if (isLoading) {
     return (

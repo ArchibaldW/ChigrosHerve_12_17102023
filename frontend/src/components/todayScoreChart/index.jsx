@@ -1,40 +1,16 @@
-import { useState, useEffect } from 'react'
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
 
-import { userService } from '../../_services'
 import Error from '../error'
 import Loader from '../loader'
 
 import './style.scss'
+import useTodayScoreChartData from '../../hooks/useTodayScoreChartData'
 
 export default function TodayScoreChart() {
-  const [todayScore, setTodayScore] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [isError, setIsError] = useState(false)
+  const { todayScore, isLoading, isError } = useTodayScoreChartData()
 
   const fakeData = [{ score: 100 }]
   const COLORS = ['#FF0000', '#FBFBFB']
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await userService.getUserInformations(
-        process.env.REACT_APP_USER_ID
-      )
-      if (res !== process.env.REACT_APP_USER_ERROR_MESSAGE) {
-        setTodayScore([
-          { score: res.data.todayScore },
-          { score: 1 - res.data.todayScore },
-        ])
-      } else {
-        setIsError(true)
-      }
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 2000)
-    }
-
-    fetchData()
-  }, [])
 
   if (isLoading) {
     return <Loader isBottom />
@@ -60,7 +36,7 @@ export default function TodayScoreChart() {
             dataKey='score'
             cx='50%'
             cy='50%'
-            outerRadius={60}
+            outerRadius={50}
             fill='#FFFFFF'
             onClick={null}
           />
@@ -70,11 +46,12 @@ export default function TodayScoreChart() {
             startAngle={90}
             endAngle={450}
             innerRadius={50}
-            outerRadius={60}
+            outerRadius={55}
             cornerRadius={25}
             onClick={null}
             fill='#82ca9d'
           >
+            ù
             {todayScore.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}

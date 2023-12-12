@@ -1,39 +1,22 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-
 import './style.scss'
-import { userService } from '../../_services'
 import PageNotFound from '../pageNotFound'
-import UnderConstruction from '../underConstruction'
 import UserKeyData from '../../components/userKeyData'
 import PerformanceChart from '../../components/performanceChart'
 import AverageSessionsChart from '../../components/averageSessionsChart'
 import TodayScoreChart from '../../components/todayScoreChart'
 import ActivityChart from '../../components/activityChart'
+import Loader from '../../components/loader'
+import useHomeData from '../../hooks/useHomeData'
 
 export default function Home() {
-  const [userInformations, setUserInformations] = useState({})
-  const [isLoading, setIsLoading] = useState(true)
-  const [isError, setIsError] = useState(false)
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await userService.getUserInformations(
-        process.env.REACT_APP_USER_ID
-      )
-      if (data) {
-        setUserInformations(data.data)
-      } else {
-        setIsError(true)
-      }
-      setIsLoading(false)
-    }
-
-    fetchData()
-  }, [])
+  const { userInformations, isLoading, isError } = useHomeData()
 
   if (isLoading) {
-    return <UnderConstruction />
+    return (
+      <div className='home'>
+        <Loader />
+      </div>
+    )
   }
 
   if (isError) {
