@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../_services'
+import activityChartDataFactory from '../factories/activityChartDataFactory'
 
 export default function useActivityChartData() {
   const [userActivityData, setUserActivityData] = useState([])
@@ -8,14 +9,16 @@ export default function useActivityChartData() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await userService.getUserActivity(
-        process.env.REACT_APP_USER_ID
-      )
+      let res = null
+      if (process.env.REACT_APP_MOKED_DATA === 'false') {
+        res = await userService.getUserActivity(process.env.REACT_APP_USER_ID)
+      } else {
+        res = await fetch(process.env.REACT_APP_MOKED_DATA_URL)
+        res = await res.json()
+      }
       if (res !== process.env.REACT_APP_USER_ERROR_MESSAGE) {
-        res.data.sessions.forEach((session, index) => {
-          session.day = index + 1
-        })
-        setUserActivityData(res.data.sessions)
+        const data = new activityChartDataFactory(res)
+        setUserActivityData(data)
       } else {
         setIsError(true)
       }
@@ -27,5 +30,5 @@ export default function useActivityChartData() {
     fetchData()
   }, [])
 
-  return {userActivityData, isLoading, isError}
+  return { userActivityData, isLoading, isError }
 }

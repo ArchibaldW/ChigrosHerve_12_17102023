@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../_services'
+import homeDataFactory from '../factories/homeDataFactory'
 
 export default function useHomeData() {
   const [userInformations, setUserInformations] = useState({})
@@ -8,11 +9,18 @@ export default function useHomeData() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await userService.getUserInformations(
-        process.env.REACT_APP_USER_ID
-      )
-      if (data) {
-        setUserInformations(data.data)
+      let res = null
+      if (process.env.REACT_APP_MOKED_DATA === 'false') {
+        res = await userService.getUserInformations(
+          process.env.REACT_APP_USER_ID
+        )
+      } else {
+        res = await fetch(process.env.REACT_APP_MOKED_DATA_URL)
+        res = await res.json()
+      }
+      if (res) {
+        const data = new homeDataFactory(res)
+        setUserInformations(data)
       } else {
         setIsError(true)
       }
@@ -24,5 +32,5 @@ export default function useHomeData() {
     fetchData()
   }, [])
 
-  return {userInformations, isLoading, isError}
+  return { userInformations, isLoading, isError }
 }

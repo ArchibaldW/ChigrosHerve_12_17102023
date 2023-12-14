@@ -78,7 +78,7 @@ export default function AverageSessionsChart() {
       </h2>
       <ResponsiveContainer width='100%' height='100%'>
         <LineChart
-          data={userAverageSessions.sessions}
+          data={userAverageSessions}
           margin={{ top: 0, right: 12, bottom: 24, left: 12 }}
         >
           <defs>

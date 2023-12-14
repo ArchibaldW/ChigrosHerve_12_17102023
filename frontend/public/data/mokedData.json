@@ -1,0 +1,40 @@
+{
+  "data": {
+    "activity": [
+      { "day": 1, "kilogram": 80, "calories": 280 },
+      { "day": 2, "kilogram": 81, "calories": 300 },
+      { "day": 3, "kilogram": 78, "calories": 250 },
+      { "day": 4, "kilogram": 84, "calories": 100 },
+      { "day": 5, "kilogram": 83, "calories": 70 },
+      { "day": 6, "kilogram": 82, "calories": 350 },
+      { "day": 7, "kilogram": 80, "calories": 800 }
+    ],
+    "averageSessions": [
+      { "day": 1, "sessionLength": 20 },
+      { "day": 2, "sessionLength": 50 },
+      { "day": 3, "sessionLength": 30 },
+      { "day": 4, "sessionLength": 10 },
+      { "day": 5, "sessionLength": 60 },
+      { "day": 6, "sessionLength": 70 },
+      { "day": 7, "sessionLength": 20 }
+    ],
+    "home": {
+      "keyData": {
+        "calorieCount": 2600,
+        "proteinCount": 100,
+        "carbohydrateCount": 200,
+        "lipidCount": 100
+      },
+      "userInfos": { "firstName": "Hervé", "lastName": "Chigros", "age": 32 }
+    },
+    "performance": [
+      { "kind": "Intensité", "value": 230, "fullMark": 250 },
+      { "kind": "Vitesse", "value": 110, "fullMark": 250 },
+      { "kind": "Force", "value": 80, "fullMark": 250 },
+      { "kind": "Endurance", "value": 54, "fullMark": 250 },
+      { "kind": "Energie", "value": 158, "fullMark": 250 },
+      { "kind": "Cardio", "value": 200, "fullMark": 250 }
+    ],
+    "todayScore": 0.18
+  }
+}
